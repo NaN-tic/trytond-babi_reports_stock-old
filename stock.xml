@@ -206,7 +206,7 @@
             <field name="filter"
                 ref="babi_reports_product.stockable_products"/>
             <field name="name">Category - Product</field>
-            <field name="timeout" eval="60"/>
+            <field name="timeout" eval="1200"/>
         </record>
         <record model="babi.report-res.group"
                 id="product_category_product_group_babi_">
@@ -249,7 +249,7 @@
             <field name="filter"
                 ref="babi_reports_product.stockable_products"/>
             <field name="name">Category - Product: Quantities</field>
-            <field name="timeout" eval="60"/>
+            <field name="timeout" eval="1200"/>
         </record>
         <record model="babi.report-res.group"
                 id="product_category_product_quantities_group_babi_">
@@ -303,7 +303,7 @@
             <field name="filter"
                 ref="babi_reports_product.stockable_products"/>
             <field name="name">Product: Quantities</field>
-            <field name="timeout" eval="60"/>
+            <field name="timeout" eval="1200"/>
         </record>
         <record model="babi.report-res.group"
                 id="product_product_quantities_group_babi_">
@@ -343,7 +343,7 @@
             <field name="parent_menu" ref="babi.menu_babi"/>
             <field name="model" search="[('model','=','stock.move')]"/>
             <field name="name">Year - Month delays</field>
-            <field name="timeout" eval="60"/>
+            <field name="timeout" eval="1200"/>
         </record>
         <record model="babi.report-res.group"
                 id="stock_move_year_month_delay_group_babi">
