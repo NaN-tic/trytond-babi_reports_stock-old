@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <!--
+             Filters
+        -->
+
+        <record model="babi.filter" id="valid_stock_moves">
+            <field name="name">Non-draft</field>
+            <field name="model" search="[('model', '=', 'stock.move')]"/>
+            <field name="domain">[('state', '!=', 'draft')]</field>
+        </record>
+        <record model="babi.filter" id="done_stock_moves">
+            <field name="name">Done</field>
+            <field name="model" search="[('model', '=', 'stock.move')]"/>
+            <field name="domain">[('state', '=', 'done')]</field>
+        </record>
+        <record model="babi.filter" id="assigned_stock_moves">
+            <field name="name">Assigned</field>
+            <field name="model" search="[('model', '=', 'stock.move')]"/>
+            <field name="domain">[('state', '=', 'assigned')]</field>
+        </record>
+
+        <!--
+             Expressions
+        -->
+
+        <record model="babi.expression" id="product_virtual_quantity">
+            <field name="ttype">float</field>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="expression">o.forecast_quantity</field>
+            <field name="name">Forecast Quantity</field>
+        </record>
+        <record model="babi.expression" id="product_real_quantity">
+            <field name="ttype">float</field>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="expression">o.quantity</field>
+            <field name="name">Real Quantity</field>
+        </record>
+        <record model="babi.expression" id="product_stock_cost">
+            <field name="ttype">float</field>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="expression">o.cost_value</field>
+            <field name="name">Cost Value</field>
+        </record>
+        <record model="babi.expression" id="stock_move_self">
+            <field name="ttype">many2one</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.id</field>
+            <field name="name">Move</field>
+            <field name="related_model" search="[('model','=','stock.move')]"/>
+        </record>
+        <record model="babi.expression" id="stock_move">
+            <field name="ttype">int</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.id</field>
+            <field name="name">ID</field>
+        </record>
+        <record model="babi.expression" id="stock_move_name">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.name</field>
+            <field name="name">Description</field>
+        </record>
+        <record model="babi.expression" id="stock_move_year">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">y(o.effective_date)</field>
+            <field name="name">Year</field>
+        </record>
+        <record model="babi.expression" id="stock_move_month">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">m(o.effective_date)</field>
+            <field name="name">Month</field>
+        </record>
+        <record model="babi.expression" id="stock_move_day">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">d(o.effective_date)</field>
+            <field name="name">Day</field>
+        </record>
+        <record model="babi.expression" id="stock_move_week">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">w(o.effective_date)</field>
+            <field name="name">Week</field>
+        </record>
+        <record model="babi.expression" id="stock_move_year_month">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">ym(o.effective_date)</field>
+            <field name="name">Year-Month</field>
+        </record>
+        <record model="babi.expression" id="stock_move_date">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">ymd(o.effective_date)</field>
+            <field name="name">Date</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_year">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">y(o.planned_date)</field>
+            <field name="name">Planned Year</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_month">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">m(o.planned_date)</field>
+            <field name="name">Planned Month</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_day">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">d(o.planned_date)</field>
+            <field name="name">Planned Day</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_week">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">w(o.planned_date)</field>
+            <field name="name">Planned Week</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_year_month">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">ym(o.planned_date)</field>
+            <field name="name">Planned Year-Month</field>
+        </record>
+        <record model="babi.expression" id="stock_move_planned_date">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">ymd(o.planned_date)</field>
+            <field name="name">Planned Date</field>
+        </record>
+        <record model="babi.expression" id="stock_move_delay">
+            <field name="ttype">float</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">(date(o.effective_date) - date(o.planned_date)).days if o.planned_date and o.effective_date else 0</field>
+            <field name="name">Delay (in days)</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product">
+            <field name="ttype">many2one</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.product and o.product.id</field>
+            <field name="name">Product</field>
+            <field name="related_model" search="[('model', '=', 'product.product')]"/>
+        </record>
+        <record model="babi.expression" id="stock_move_product_code">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.product and o.product.code</field>
+            <field name="name">Product Code</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product_name">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.product and o.product.name</field>
+            <field name="name">Product Name</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product_category">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.product and o.product.category.name</field>
+            <field name="name">Product Category</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product_source_location">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.from_location.rec_name</field>
+            <field name="name">Source Location</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product_destination_location">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.to_location.rec_name</field>
+            <field name="name">Destination Location</field>
+        </record>
+        <record model="babi.expression" id="stock_move_product_lot_name">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.lot and o.lot.rec_name</field>
+            <field name="name">Lot</field>
+        </record>
+        <record model="babi.expression" id="stock_move_picking_name">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.shipment and o.shipment.rec_name</field>
+            <field name="name">Shipment</field>
+        </record>
+        <record model="babi.expression" id="stock_move_state">
+            <field name="ttype">char</field>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="expression">o.state</field>
+            <field name="name">State</field>
+        </record>
+        <!--
+             Reports
+        -->
+
+        <!-- Category - Product | Quantity, Stock Cost-->
+        <record model="babi.report" id="product_category_product">
+            <field name="parent_menu" ref="babi.menu_babi"/>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="filter"
+                ref="babi_reports_product.stockable_products"/>
+            <field name="name">Category - Product</field>
+            <field name="timeout" eval="60"/>
+        </record>
+        <record model="babi.report-res.group"
+                id="product_category_product_group_babi_">
+            <field name="report" ref="product_category_product"/>
+            <field name="group" ref="babi.group_babi"/>
+        </record>
+        <record model="babi.dimension" id="product_category_product__category">
+            <field name="report" ref="product_category_product"/>
+            <field name="expression"
+                ref="babi_reports_product.product_category"/>
+            <field name="name">Category</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="babi.dimension" id="product_category_product__product">
+            <field name="report" ref="product_category_product"/>
+            <field name="expression"
+                ref="babi_reports_product.product_rec_name"/>
+            <field name="name">Product</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="babi.measure" id="product_category_product__quantity">
+            <field name="report" ref="product_category_product"/>
+            <field name="expression" ref="product_real_quantity"/>
+            <field name="name">Quantity</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="babi.measure" id="product_category_product__cost">
+            <field name="report" ref="product_category_product"/>
+            <field name="expression" ref="product_stock_cost"/>
+            <field name="name">Cost</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <!-- Category - Product | Quantity, Stock Cost-->
+        <record model="babi.report" id="product_category_product_quantities">
+            <field name="parent_menu" ref="babi.menu_babi"/>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="filter"
+                ref="babi_reports_product.stockable_products"/>
+            <field name="name">Category - Product: Quantities</field>
+            <field name="timeout" eval="60"/>
+        </record>
+        <record model="babi.report-res.group"
+                id="product_category_product_quantities_group_babi_">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="group" ref="babi.group_babi"/>
+        </record>
+        <record model="babi.dimension"
+                id="product_category_product_quantities__category">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="expression"
+                ref="babi_reports_product.product_category"/>
+            <field name="name">Category</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="babi.dimension"
+                id="product_category_product_quantities__product">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="expression" ref="babi_reports_product.product_name"/>
+            <field name="name">Product</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="babi.measure"
+                id="product_category_product_quantities__virtual">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="expression" ref="product_virtual_quantity"/>
+            <field name="name">Forecast Quantity</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">3</field>
+        </record>
+        <record model="babi.measure"
+                id="product_category_product_quantities__quantity">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="expression" ref="product_real_quantity"/>
+            <field name="name">Real Quantity</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">4</field>
+        </record>
+        <record model="babi.measure"
+                id="product_category_product_quantities__cost">
+            <field name="report" ref="product_category_product_quantities"/>
+            <field name="expression" ref="product_stock_cost"/>
+            <field name="name">Cost</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- Product | Quantity, Stock Cost-->
+        <record model="babi.report" id="product_product_quantities">
+            <field name="parent_menu" ref="babi.menu_babi"/>
+            <field name="model" search="[('model','=','product.product')]"/>
+            <field name="filter"
+                ref="babi_reports_product.stockable_products"/>
+            <field name="name">Product: Quantities</field>
+            <field name="timeout" eval="60"/>
+        </record>
+        <record model="babi.report-res.group"
+                id="product_product_quantities_group_babi_">
+            <field name="report" ref="product_product_quantities"/>
+            <field name="group" ref="babi.group_babi"/>
+        </record>
+        <record model="babi.dimension" id="product_product_quantities__product">
+            <field name="report" ref="product_product_quantities"/>
+            <field name="expression" ref="babi_reports_product.product_name"/>
+            <field name="name">Product</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="babi.measure" id="product_product_quantities__virtual">
+            <field name="report" ref="product_product_quantities"/>
+            <field name="expression" ref="product_virtual_quantity"/>
+            <field name="name">Forecast Quantity</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="babi.measure" id="product_product_quantities__quantity">
+            <field name="report" ref="product_product_quantities"/>
+            <field name="expression" ref="product_real_quantity"/>
+            <field name="name">Real Quantity</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">3</field>
+        </record>
+        <record model="babi.measure" id="product_product_quantities__cost">
+            <field name="report" ref="product_product_quantities"/>
+            <field name="expression" ref="product_stock_cost"/>
+            <field name="name">Cost</field>
+            <field name="aggregate">sum</field>
+            <field name="sequence">4</field>
+        </record>
+        <!-- Year - Month | Delay -->
+
+        <record model="babi.report" id="stock_move_year_month_delay">
+            <field name="parent_menu" ref="babi.menu_babi"/>
+            <field name="model" search="[('model','=','stock.move')]"/>
+            <field name="name">Year - Month delays</field>
+            <field name="timeout" eval="60"/>
+        </record>
+        <record model="babi.report-res.group"
+                id="stock_move_year_month_delay_group_babi">
+            <field name="report" ref="stock_move_year_month_delay"/>
+            <field name="group" ref="babi.group_babi"/>
+        </record>
+        <record model="babi.dimension" id="stock_move_year_month_delay__year">
+            <field name="report" ref="stock_move_year_month_delay"/>
+            <field name="expression" ref="stock_move_year"/>
+            <field name="name">Year</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="babi.dimension" id="stock_move_year_month_delay__month">
+            <field name="report" ref="stock_move_year_month_delay"/>
+            <field name="expression" ref="stock_move_month"/>
+            <field name="name">Month</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="babi.measure" id="stock_move_year_month_delay__delay">
+            <field name="report" ref="stock_move_year_month_delay"/>
+            <field name="expression" ref="stock_move_delay"/>
+            <field name="name">Delay</field>
+            <field name="aggregate">avg</field>
+            <field name="sequence">1</field>
+        </record>
+
+    </data>
+</tryton>
