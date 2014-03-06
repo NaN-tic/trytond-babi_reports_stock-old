@@ -1,0 +1,210 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "model:babi.dimension,name:product_category_product__category"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "model:babi.dimension,name:product_category_product__product"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt ""
+"model:babi.dimension,name:product_category_product_quantities__category"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt ""
+"model:babi.dimension,name:product_category_product_quantities__product"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "model:babi.dimension,name:product_product_quantities__product"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "model:babi.dimension,name:stock_move_year_month_delay__month"
+msgid "Month"
+msgstr "Mes"
+
+msgctxt "model:babi.dimension,name:stock_move_year_month_delay__year"
+msgid "Year"
+msgstr "Año"
+
+msgctxt "model:babi.expression,name:product_real_quantity"
+msgid "Real Quantity"
+msgstr "Cantidad real"
+
+msgctxt "model:babi.expression,name:product_stock_cost"
+msgid "Cost Value"
+msgstr "Valor de coste"
+
+msgctxt "model:babi.expression,name:product_virtual_quantity"
+msgid "Forecast Quantity"
+msgstr "Cantidad prevista"
+
+msgctxt "model:babi.expression,name:stock_move"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "model:babi.expression,name:stock_move_date"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "model:babi.expression,name:stock_move_day"
+msgid "Day"
+msgstr "Día"
+
+msgctxt "model:babi.expression,name:stock_move_delay"
+msgid "Delay (in days)"
+msgstr "Desfase (en días)"
+
+msgctxt "model:babi.expression,name:stock_move_month"
+msgid "Month"
+msgstr "Mes"
+
+msgctxt "model:babi.expression,name:stock_move_name"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "model:babi.expression,name:stock_move_picking_name"
+msgid "Shipment"
+msgstr "Envío"
+
+msgctxt "model:babi.expression,name:stock_move_planned_date"
+msgid "Planned Date"
+msgstr "Fecha estimada"
+
+msgctxt "model:babi.expression,name:stock_move_planned_day"
+msgid "Planned Day"
+msgstr "Dia estimado"
+
+msgctxt "model:babi.expression,name:stock_move_planned_month"
+msgid "Planned Month"
+msgstr "Mes estimado"
+
+msgctxt "model:babi.expression,name:stock_move_planned_week"
+msgid "Planned Week"
+msgstr "Semana estimada"
+
+msgctxt "model:babi.expression,name:stock_move_planned_year"
+msgid "Planned Year"
+msgstr "Año estimado"
+
+msgctxt "model:babi.expression,name:stock_move_planned_year_month"
+msgid "Planned Year-Month"
+msgstr "Año-Mes estimado"
+
+msgctxt "model:babi.expression,name:stock_move_product"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "model:babi.expression,name:stock_move_product_category"
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+msgctxt "model:babi.expression,name:stock_move_product_code"
+msgid "Product Code"
+msgstr "Código producto"
+
+msgctxt "model:babi.expression,name:stock_move_product_destination_location"
+msgid "Destination Location"
+msgstr "Ubicación destino"
+
+msgctxt "model:babi.expression,name:stock_move_product_lot_name"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "model:babi.expression,name:stock_move_product_name"
+msgid "Product Name"
+msgstr "Nombre producto"
+
+msgctxt "model:babi.expression,name:stock_move_product_source_location"
+msgid "Source Location"
+msgstr "Ubicación origen"
+
+msgctxt "model:babi.expression,name:stock_move_self"
+msgid "Move"
+msgstr "Movimiento"
+
+msgctxt "model:babi.expression,name:stock_move_state"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "model:babi.expression,name:stock_move_week"
+msgid "Week"
+msgstr "Semana"
+
+msgctxt "model:babi.expression,name:stock_move_year"
+msgid "Year"
+msgstr "Año"
+
+msgctxt "model:babi.expression,name:stock_move_year_month"
+msgid "Year-Month"
+msgstr "Año-Mes"
+
+msgctxt "model:babi.filter,name:assigned_stock_moves"
+msgid "Assigned"
+msgstr "Reservado"
+
+msgctxt "model:babi.filter,name:done_stock_moves"
+msgid "Done"
+msgstr "Realizado"
+
+msgctxt "model:babi.filter,name:valid_stock_moves"
+msgid "Non-draft"
+msgstr "No borrador"
+
+msgctxt "model:babi.measure,name:product_category_product__cost"
+msgid "Cost"
+msgstr "Coste"
+
+msgctxt "model:babi.measure,name:product_category_product__quantity"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "model:babi.measure,name:product_category_product_quantities__cost"
+msgid "Cost"
+msgstr "Coste"
+
+msgctxt ""
+"model:babi.measure,name:product_category_product_quantities__quantity"
+msgid "Real Quantity"
+msgstr "Cantidad real"
+
+msgctxt "model:babi.measure,name:product_category_product_quantities__virtual"
+msgid "Forecast Quantity"
+msgstr "Cantidad prevista"
+
+msgctxt "model:babi.measure,name:product_product_quantities__cost"
+msgid "Cost"
+msgstr "Coste"
+
+msgctxt "model:babi.measure,name:product_product_quantities__quantity"
+msgid "Real Quantity"
+msgstr "Cantidad real"
+
+msgctxt "model:babi.measure,name:product_product_quantities__virtual"
+msgid "Forecast Quantity"
+msgstr "Cantidad prevista"
+
+msgctxt "model:babi.measure,name:stock_move_year_month_delay__delay"
+msgid "Delay"
+msgstr "Desfase"
+
+msgctxt "model:babi.report,name:product_category_product"
+msgid "Category - Product"
+msgstr "Categoria - Producto"
+
+msgctxt "model:babi.report,name:product_category_product_quantities"
+msgid "Category - Product: Quantities"
+msgstr "Categoria - Producto: Cantidades"
+
+msgctxt "model:babi.report,name:product_product_quantities"
+msgid "Product: Quantities"
+msgstr "Producto: Cantidad"
+
+msgctxt "model:babi.report,name:stock_move_year_month_delay"
+msgid "Year - Month delays"
+msgstr "Retrasos Año - Mes "
