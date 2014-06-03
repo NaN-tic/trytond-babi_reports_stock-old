@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
 <tryton>
     <data>
         <!--
              Filters
         -->
-
         <record model="babi.filter" id="valid_stock_moves">
             <field name="name">Non-draft</field>
             <field name="model" search="[('model', '=', 'stock.move')]"/>
@@ -24,7 +25,6 @@
         <!--
              Expressions
         -->
-
         <record model="babi.expression" id="product_virtual_quantity">
             <field name="ttype">float</field>
             <field name="model" search="[('model','=','product.product')]"/>
@@ -195,10 +195,10 @@
             <field name="expression">o.state</field>
             <field name="name">State</field>
         </record>
+
         <!--
              Reports
         -->
-
         <!-- Category - Product | Quantity, Stock Cost-->
         <record model="babi.report" id="product_category_product">
             <field name="parent_menu" ref="babi.menu_babi"/>
@@ -337,8 +337,8 @@
             <field name="aggregate">sum</field>
             <field name="sequence">4</field>
         </record>
-        <!-- Year - Month | Delay -->
 
+        <!-- Year - Month | Delay -->
         <record model="babi.report" id="stock_move_year_month_delay">
             <field name="parent_menu" ref="babi.menu_babi"/>
             <field name="model" search="[('model','=','stock.move')]"/>
@@ -369,6 +369,5 @@
             <field name="aggregate">avg</field>
             <field name="sequence">1</field>
         </record>
-
     </data>
 </tryton>
