@@ -160,10 +160,11 @@
             <field name="name">Product Name</field>
         </record>
         <record model="babi.expression" id="stock_move_product_category">
-            <field name="ttype">char</field>
+            <field name="ttype">many2one</field>
             <field name="model" search="[('model','=','stock.move')]"/>
-            <field name="expression">o.product and o.product.category.name</field>
+            <field name="expression">o.product and o.product.category.id</field>
             <field name="name">Product Category</field>
+            <field name="related_model" search="[('model','=','product.category')]"/>
         </record>
         <record model="babi.expression" id="stock_move_product_source_location">
             <field name="ttype">char</field>
